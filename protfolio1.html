@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="header">
+        <div class="container">
+            <nav>
+                <img src="developer-1024.webp" class="logo">
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Services</a></li>
+                    <li><a href="#">Portfolio</a></li>
+                    <li><a href="#">Contact</a></li>
+                     
+                </ul>
+                
+            </nav>
+            <div class="header-text">
+                <p>Web Developer</p>
+                <h1>Hi, I'm <span>Ankit </span> <br>Halder from Kolkata<h1>
+                
+            </div>
+        </div>
+    </div>
+    <!-- about -->
+    <div id="about">
+        <div class="container">
+            <div class="row">
+                <div class="about-col-1">
+             <img src="developer.webp" class="img">
+                </div>
+                <div class="about-col-2">
+                    <h1 class="sub-title">About Me</h1><br>
+                    <p>To solve problems in an effective
+                        and creative manner in a
+                        challenging position in the field
+                        of Software Design and
+                        Development.Self-motivated,
+                        highly passionate, and
+                        hardworking fresher looking for
+                        an opportunity to work in a
+                        challenging organization to
+                        utilize my skills and knowledge
+                        to work for the growth of the
+                        organization. </p>
+                    <div class="tab-titles">
+                        <p class="tab-links active-link" onclick="opentab('skills')">skills </p>
+                        <p class="tab-links" onclick="opentab('projects')">Projects </p>
+                        <p class="tab-links" onclick="opentab('education')">Education </p>
+                    </div>
+                    <div class="tab-contents active-tab" id="skills">
+                        <ul>
+                            <li><span>Web Developer</span><br>develop/Rebuild websites</li>
+                            <li><span>App Development </span><br>develop applications</li>
+                            <li><span>UI/UX</span><br>design websites</li>
+                        </ul>
+                    </div>
+                    <div class="tab-contents" id="projects">
+                        <ul>
+                            <li>-Android App Car with Metal Detector</li>
+                            <li>-E-commerce website</li>
+                            <li><span>-quiz Website</span><br>using html , css and java script</li>
+                        </ul>
+                    </div>
+                </div>
+                    <div class="tab-contents" id="education">
+                        <ul>
+                            <li><span>B.TECH (Electronics And Instrumentation
+                                Engineering )<br>DGPA:7.4
+                                </span><br>Narula Institute of Technology</li>
+                            <li><span>Higher Secondary Examination(2019) <br> 78.2% </span><br>Govt Sponsored Multipurpose School For Boys Taki
+                                House</li>
+                            <li><span>Madhyamik Examination(2017)<br>81%
+                            </span><br>Govt Sponsored Multipurpose School For Boys Taki
+                            House</li>
+                        </ul>
+                    </div>
+                    
+            </div>
+        </div>
+    </div>
+    <!-- contact -->
+
+    <div id="contact">
+<div class="container">
+    <div class="row">
+        <div class="contact-left">
+            
+            <h1 class="sub-ti tle">Contact Me</h1>
+            <p>ankithalder744@gmail.com</p>
+            <p> 743923855*</p>
+            <div class="social-icons">
+                <a href="https://www.google.com/"> <img src="Google.svg" class="svg-img"/></a>
+                <a href="https://github.com/Ankit-Halder"><img src="github.svg" class="svg-imgo"/></a>
+                <a href="https://www.linkedin.com/in/ankit-halder-944667247/"><img src="linkedin-copy.svg" class="svg-img"/></a>
+                <a href="https://www.instagram.com/__ankkit.001__/"><img src="instagram.svg" class="svg-img"/></a>
+            </div><br>
+            <a href="p. cv.pdf" download class="btn btn2" >Download Cv</a>
+        </div>
+        <div class="contact-right">
+         <form name="submit-to-google-sheet">
+            <input type="text" name="Name" placeholder="Your Name" required>
+            <input type="email" name="Email" placeholder="Your Email" required>
+            <textarea name="Message" rows="6" placeholder="Your Massage"></textarea>
+            <button type="submit" class="btn btn2">Submit</button>
+         </form>
+         <span id="msg"></span>
+        </div>
+    </div>
+
+    <div class="copyright">
+        <p>Copywrite @ Ankit .Made with @by Own Tutorials</p>
+    </div>
+</div>
+
+    </div>
+    <script>
+         var tablinks = document.getElementsByClassName("tab-links");
+         var tabcontents = document.getElementsByClassName("tab-contents");
+         
+
+         function opentab(tabname){
+            for(tablink of tablinks){
+                tablink.classList.remove("active-link");
+            }
+            for(tabcontent of tabcontents){
+                tabcontent.classList.remove("active-tab");
+            }
+            event.currentTarget.classList.add("active-link");
+            document.getElementById(tabname).classList.add("active-tab");
+         }
+    </script>
+    <script>
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbwm4bKB37beAkMBNMZ4jFqp2C88Fb0FfKPgE9QPzaO1JNjHFGIXZqROD6d2tBX8BF3UKg/exec'
+        const form = document.forms['submit-to-google-sheet']
+        const msg= document.getElementById("msg")
+      
+        form.addEventListener('submit', e => {
+          e.preventDefault()
+          fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+            .then(response => {
+                msg.innerHTML="Message Sent succedfully "
+                setTimeout(function(){
+                    msg.innerHTMl=""
+                },5000)
+                from.reset()
+            })
+            .catch(error => console.error('Error!', error.message))
+        })
+      </script>
+</body>
+</html>
